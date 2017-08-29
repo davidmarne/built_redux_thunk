@@ -1,0 +1,12 @@
+name: thunk
+version: 0.0.1
+description:
+   Thunks for built_redux
+authors:
+- David Marne <davemarne@gmail.com>
+homepage: https://github.com/davidmarne/thunk
+dependencies:
+  built_redux: "^2.1.0"
+
+environment:
+  sdk: ">=1.17.1 <2.0.0"

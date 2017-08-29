@@ -1,4 +1,4 @@
-name: thunk
+name: built_redux_thunk
 version: 0.0.1
 description:
    Thunks for built_redux

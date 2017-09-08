@@ -4,7 +4,7 @@ description:
    Thunks for built_redux
 authors:
 - David Marne <davemarne@gmail.com>
-homepage: https://github.com/davidmarne/thunk
+homepage: https://github.com/davidmarne/built_redux_thunk
 dependencies:
   built_redux: "^2.1.0"
 

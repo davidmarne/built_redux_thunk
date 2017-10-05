@@ -1,12 +1,12 @@
 name: built_redux_thunk
-version: 0.1.0
+version: 0.2.0
 description:
    Thunks for built_redux
 authors:
 - David Marne <davemarne@gmail.com>
 homepage: https://github.com/davidmarne/built_redux_thunk
 dependencies:
-  built_redux: ">=2.1.0 <6.0.0"
+  built_redux: "^6.0.0"
   built_value: ^4.1.0
 
 dev_dependencies:

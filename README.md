@@ -17,11 +17,11 @@ dynamic httpRequestThunk(String url) => (MiddlewareApi api) {
 };
 ```
 
-Add an action:
+Add an thunk dispatcher to your ReduxActions:
 
 ```dart
 abstract class CounterActions extends ReduxActions {
-  ActionDispatcher<Thunk> httpRequest;
+  ActionDispatcher<Thunk> thunkDispatcher;
   ActionDispatcher<String> onRequestResolved;
 
   // factory to create on instance of the generated implementation of CounterActions
@@ -36,6 +36,7 @@ Register the `Thunk` middleware:
 
 ```dart
 var store = new Store<Counter, CounterBuilder, CounterActions>(
+  createReducer(),
   new Counter(),
   new CounterActions(),
   middleware: <Middleware<TestCounter, TestCounterBuilder, TestCounterActions>>[
@@ -47,5 +48,5 @@ var store = new Store<Counter, CounterBuilder, CounterActions>(
 Dispatch the thunk
 
 ```dart
-store.actions.httpRquest(httpRquestThunk('http://example.com/'));
+store.actions.thunkDispatcher(httpRquestThunk('http://example.com/'));
 ```

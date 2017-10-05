@@ -19,6 +19,7 @@ main() {
       ];
 
       store = new Store(
+        createReducer(),
         defaultValue,
         actions,
         middleware: middleware,
@@ -31,7 +32,7 @@ main() {
 
     test('async action updates state', () async {
       setup();
-      store.actions.incrementAsync(thunk(3));
+      store.actions.thunkDispatcher(asyncIncrement(3));
       var stateChange = await store.stream.first;
       expect(stateChange.prev.count, 1);
       expect(stateChange.next.count, 4);
@@ -39,7 +40,7 @@ main() {
   });
 }
 
-dynamic thunk(int number) => (MiddlewareApi mw) {
+dynamic asyncIncrement(int number) => (MiddlewareApi mw) {
       new Future.delayed(const Duration(milliseconds: 200), () {
         (mw.actions as TestCounterActions).increment(number);
       }) as dynamic;

@@ -8,7 +8,8 @@ part 'test_counter.g.dart';
 
 abstract class TestCounterActions extends ReduxActions {
   ActionDispatcher<int> increment;
-  ActionDispatcher<Thunk> thunkDispatcher;
+  ActionDispatcher<Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>
+      thunkDispatcher;
 
   TestCounterActions._();
   factory TestCounterActions() => new _$TestCounterActions();

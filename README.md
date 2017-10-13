@@ -13,7 +13,7 @@ that dispatches an action (`onRequestResolved`) in async code:
 dynamic httpRequestThunk(String url) => (MiddlewareApi api) {
   // call the web server asynchronously.
   HttpRequest.getString(url)
-      .then((api.actions as CounterActions).onRequestResolved);
+      .then(api.actions.onRequestResolved);
 };
 ```
 
@@ -21,7 +21,7 @@ Add an thunk dispatcher to your ReduxActions:
 
 ```dart
 abstract class CounterActions extends ReduxActions {
-  ActionDispatcher<Thunk> thunkDispatcher;
+  ActionDispatcher<Thunk<Counter, CounterBuilder, CounterActions>> thunkDispatcher;
   ActionDispatcher<String> onRequestResolved;
 
   // factory to create on instance of the generated implementation of CounterActions

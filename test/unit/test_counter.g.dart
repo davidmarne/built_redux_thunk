@@ -92,8 +92,11 @@ class TestCounterBuilder implements Builder<TestCounter, TestCounterBuilder> {
 // **************************************************************************
 
 class _$TestCounterActions extends TestCounterActions {
-  final ActionDispatcher<Thunk> thunkDispatcher =
-      new ActionDispatcher<Thunk>('TestCounterActions-thunkDispatcher');
+  final ActionDispatcher<
+          Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>
+      thunkDispatcher = new ActionDispatcher<
+              Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>(
+          'TestCounterActions-thunkDispatcher');
 
   final ActionDispatcher<int> increment =
       new ActionDispatcher<int>('TestCounterActions-increment');
@@ -109,8 +112,11 @@ class _$TestCounterActions extends TestCounterActions {
 }
 
 class TestCounterActionsNames {
-  static final ActionName<Thunk> thunkDispatcher =
-      new ActionName<Thunk>('TestCounterActions-thunkDispatcher');
+  static final ActionName<
+          Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>
+      thunkDispatcher = new ActionName<
+              Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>(
+          'TestCounterActions-thunkDispatcher');
   static final ActionName<int> increment =
       new ActionName<int>('TestCounterActions-increment');
 }

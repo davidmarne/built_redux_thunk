@@ -3,7 +3,47 @@
 part of test_counter;
 
 // **************************************************************************
-// Generator: BuiltValueGenerator
+// BuiltReduxGenerator
+// **************************************************************************
+
+// ignore_for_file: avoid_classes_with_only_static_members
+// ignore_for_file: annotate_overrides
+
+class _$TestCounterActions extends TestCounterActions {
+  factory _$TestCounterActions() => new _$TestCounterActions._();
+  _$TestCounterActions._() : super._();
+
+  final ActionDispatcher<int> increment =
+      new ActionDispatcher<int>('TestCounterActions-increment');
+  final ActionDispatcher<
+      FutureOr<void> Function(
+          MiddlewareApi<TestCounter, TestCounterBuilder,
+              TestCounterActions>)> thunkDispatcher = new ActionDispatcher<
+      FutureOr<void> Function(
+          MiddlewareApi<TestCounter, TestCounterBuilder,
+              TestCounterActions>)>('TestCounterActions-thunkDispatcher');
+
+  @override
+  void setDispatcher(Dispatcher dispatcher) {
+    increment.setDispatcher(dispatcher);
+    thunkDispatcher.setDispatcher(dispatcher);
+  }
+}
+
+class TestCounterActionsNames {
+  static final ActionName<int> increment =
+      new ActionName<int>('TestCounterActions-increment');
+  static final ActionName<
+      FutureOr<void> Function(
+          MiddlewareApi<TestCounter, TestCounterBuilder,
+              TestCounterActions>)> thunkDispatcher = new ActionName<
+      FutureOr<void> Function(
+          MiddlewareApi<TestCounter, TestCounterBuilder,
+              TestCounterActions>)>('TestCounterActions-thunkDispatcher');
+}
+
+// **************************************************************************
+// BuiltValueGenerator
 // **************************************************************************
 
 // ignore_for_file: always_put_control_body_on_new_line
@@ -22,7 +62,8 @@ class _$TestCounter extends TestCounter {
       (new TestCounterBuilder()..update(updates)).build();
 
   _$TestCounter._({this.count}) : super._() {
-    if (count == null) throw new ArgumentError.notNull('count');
+    if (count == null)
+      throw new BuiltValueNullFieldError('TestCounter', 'count');
   }
 
   @override
@@ -85,38 +126,4 @@ class TestCounterBuilder implements Builder<TestCounter, TestCounterBuilder> {
     replace(_$result);
     return _$result;
   }
-}
-
-// **************************************************************************
-// Generator: BuiltReduxGenerator
-// **************************************************************************
-
-class _$TestCounterActions extends TestCounterActions {
-  final ActionDispatcher<
-          Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>
-      thunkDispatcher = new ActionDispatcher<
-              Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>(
-          'TestCounterActions-thunkDispatcher');
-
-  final ActionDispatcher<int> increment =
-      new ActionDispatcher<int>('TestCounterActions-increment');
-  factory _$TestCounterActions() => new _$TestCounterActions._();
-
-  _$TestCounterActions._() : super._();
-
-  @override
-  void setDispatcher(Dispatcher dispatcher) {
-    thunkDispatcher.setDispatcher(dispatcher);
-    increment.setDispatcher(dispatcher);
-  }
-}
-
-class TestCounterActionsNames {
-  static final ActionName<
-          Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>
-      thunkDispatcher = new ActionName<
-              Thunk<TestCounter, TestCounterBuilder, TestCounterActions>>(
-          'TestCounterActions-thunkDispatcher');
-  static final ActionName<int> increment =
-      new ActionName<int>('TestCounterActions-increment');
 }

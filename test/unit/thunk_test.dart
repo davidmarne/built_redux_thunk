@@ -40,9 +40,10 @@ main() {
   });
 }
 
-dynamic asyncIncrement(int number) =>
+Thunk<TestCounter, TestCounterBuilder, TestCounterActions> asyncIncrement(
+        int number) =>
     (MiddlewareApi<TestCounter, TestCounterBuilder, TestCounterActions> mw) {
       new Future.delayed(const Duration(milliseconds: 200), () {
         mw.actions.increment(number);
-      }) as dynamic;
+      });
     };

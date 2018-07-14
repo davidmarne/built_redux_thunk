@@ -1,5 +1,6 @@
 library test_counter;
 
+import 'dart:async';
 import 'package:built_redux/built_redux.dart';
 import 'package:built_redux_thunk/built_redux_thunk.dart';
 import 'package:built_value/built_value.dart';
@@ -15,7 +16,8 @@ abstract class TestCounterActions extends ReduxActions {
   factory TestCounterActions() => new _$TestCounterActions();
 }
 
-_increment(TestCounter state, Action<int> action, TestCounterBuilder builder) =>
+void _increment(
+        TestCounter state, Action<int> action, TestCounterBuilder builder) =>
     builder..count = state.count + action.payload;
 
 Reducer<TestCounter, TestCounterBuilder, dynamic> createReducer() =>

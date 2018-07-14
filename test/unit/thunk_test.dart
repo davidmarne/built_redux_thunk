@@ -42,7 +42,7 @@ main() {
 
 Thunk<TestCounter, TestCounterBuilder, TestCounterActions> asyncIncrement(
         int number) =>
-    (MiddlewareApi<TestCounter, TestCounterBuilder, TestCounterActions> mw) {
+    (mw) {
       new Future.delayed(const Duration(milliseconds: 200), () {
         mw.actions.increment(number);
       });

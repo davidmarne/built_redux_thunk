@@ -10,7 +10,8 @@ Create a function that returns a thunk configured with an url,
 that dispatches an action (`onRequestResolved`) in async code:
 
 ```dart
-dynamic httpRequestThunk(String url) => (MiddlewareApi<Counter, CounterBuilder, CounterActions> api) {
+// api's type is inferred
+Thunk<TestCounter, TestCounterBuilder, TestCounterActions> httpRequestThunk(String url) => (api) {
   // call the web server asynchronously.
   HttpRequest.getString(url)
       .then(api.actions.onRequestResolved);

@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 
 import 'test_counter.dart';
 
-main() {
+void main() {
   group('redux', () {
     Store<TestCounter, TestCounterBuilder, TestCounterActions> store;
     setup() {
